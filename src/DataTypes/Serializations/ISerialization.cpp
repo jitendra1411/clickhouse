@@ -190,7 +190,8 @@ String getNameForSubstreamPath(
             /// but by separate Array columns with names in a form of a.b,
             /// and name is encoded as a whole.
             if (it->type == Substream::TupleElement && escape_for_file_name)
-                stream_name += escapeForFileName(substream_name);
+                // stream_name += escapeForFileName(substream_name);
+                stream_name += substream_name;
             else
                 stream_name += substream_name;
         }
