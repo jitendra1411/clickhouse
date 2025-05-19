@@ -104,6 +104,7 @@
 #include <limits>
 #include <optional>
 #include <ranges>
+#include <regex>
 #include <set>
 #include <thread>
 #include <unordered_set>
@@ -6313,8 +6314,9 @@ void MergeTreeData::restorePartFromBackup(std::shared_ptr<RestoredPartsHolder> r
             ProfileEvents::increment(ProfileEvents::RestorePartsSkippedBytes, backup->getFileSize(part_path_in_backup_fs / filename));
             continue;
         }
-
-        size_t file_size = backup->copyFileToDisk(part_path_in_backup_fs / filename, disk, temp_part_dir / filename, WriteMode::Rewrite);
+        String destinationFilename = std::regex_replace(filename, std::regex("ntnxdot"), "%2E");
+        size_t file_size = backup->copyFileToDisk(part_path_in_backup_fs / filename, disk, temp_part_dir / destinationFilename, WriteMode::Rewrite);
+        // size_t file_size = backup->copyFileToDisk(part_path_in_backup_fs / filename, disk, temp_part_dir / filename, WriteMode::Rewrite);
         reservation->update(reservation->getSize() - file_size);
     }
 

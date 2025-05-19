@@ -17,6 +17,7 @@
 #include <Disks/SingleDiskVolume.h>
 #include <Storages/MergeTree/MergeTreeData.h>
 #include <Storages/MergeTree/IMergeTreeDataPart.h>
+#include <regex>
 
 #include <fmt/ranges.h>
 
@@ -423,7 +424,9 @@ void DataPartStorageOnDiskBase::backup(
     auto backup_file = [&](const String & filepath)
     {
         auto filepath_on_disk = part_path_on_disk / filepath;
-        auto filepath_in_backup = part_path_in_backup / filepath;
+        // auto filepath_in_backup = part_path_in_backup / filepath;
+        auto destFilename = std::regex_replace(filepath, std::regex("%2E"), "ntnxdot");
+        auto filepath_in_backup = part_path_in_backup / destFilename;
 
         if (is_projection_part && allow_backup_broken_projection && !disk->existsFile(filepath_on_disk))
             return;
