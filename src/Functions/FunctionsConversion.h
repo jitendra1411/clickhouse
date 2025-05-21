@@ -4091,14 +4091,14 @@ extern template class FunctionConvertFromString<DataTypeInt256, NameToInt256OrNu
 extern template class FunctionConvertFromString<DataTypeBFloat16, NameToBFloat16OrNull, ConvertFromStringExceptionMode::Null>;
 extern template class FunctionConvertFromString<DataTypeFloat32, NameToFloat32OrNull, ConvertFromStringExceptionMode::Null>;
 extern template class FunctionConvertFromString<DataTypeFloat64, NameToFloat64OrNull, ConvertFromStringExceptionMode::Null>;
-extern template class FunctionConvertFromString<DataTypeDate, NameToDateOrNull, ConvertFromStringExceptionMode::Null>;
+extern template class FunctionConvertFromStringOrInt<DataTypeDate, NameToDateOrNull, ConvertFromStringExceptionMode::Null>;
 extern template class FunctionConvertFromString<DataTypeDate32, NameToDate32OrNull, ConvertFromStringExceptionMode::Null>;
 
 extern template class FunctionConvertFromStringOrInt<DataTypeDateTime, NameToDateTimeOrNull, ConvertFromStringExceptionMode::Null>;
 extern template class FunctionConvertFromString<DataTypeTime, NameToTimeOrNull, ConvertFromStringExceptionMode::Null>;
 extern template class FunctionConvertFromString<DataTypeTime64, NameToTime64OrNull, ConvertFromStringExceptionMode::Null>;
 
-extern template class FunctionConvertFromString<DataTypeDateTime64, NameToDateTime64OrNull, ConvertFromStringExceptionMode::Null>;
+extern template class FunctionConvertFromStringOrInt<DataTypeDateTime64, NameToDateTime64OrNull, ConvertFromStringExceptionMode::Null>;
 extern template class FunctionConvertFromString<DataTypeDecimal<Decimal32>, NameToDecimal32OrNull, ConvertFromStringExceptionMode::Null>;
 extern template class FunctionConvertFromString<DataTypeDecimal<Decimal64>, NameToDecimal64OrNull, ConvertFromStringExceptionMode::Null>;
 extern template class FunctionConvertFromString<DataTypeDecimal<Decimal128>, NameToDecimal128OrNull, ConvertFromStringExceptionMode::Null>;
@@ -4122,12 +4122,12 @@ using FunctionToInt256OrNull = FunctionConvertFromString<DataTypeInt256, NameToI
 using FunctionToBFloat16OrNull = FunctionConvertFromString<DataTypeBFloat16, NameToBFloat16OrNull, ConvertFromStringExceptionMode::Null>;
 using FunctionToFloat32OrNull = FunctionConvertFromString<DataTypeFloat32, NameToFloat32OrNull, ConvertFromStringExceptionMode::Null>;
 using FunctionToFloat64OrNull = FunctionConvertFromString<DataTypeFloat64, NameToFloat64OrNull, ConvertFromStringExceptionMode::Null>;
-using FunctionToDateOrNull = FunctionConvertFromString<DataTypeDate, NameToDateOrNull, ConvertFromStringExceptionMode::Null>;
+using FunctionToDateOrNull = FunctionConvertFromStringOrInt<DataTypeDate, NameToDateOrNull, ConvertFromStringExceptionMode::Null>;
 using FunctionToDate32OrNull = FunctionConvertFromString<DataTypeDate32, NameToDate32OrNull, ConvertFromStringExceptionMode::Null>;
 using FunctionToDateTimeOrNull = FunctionConvertFromStringOrInt<DataTypeDateTime, NameToDateTimeOrNull, ConvertFromStringExceptionMode::Null>;
 using FunctionToTimeOrNull = FunctionConvertFromString<DataTypeTime, NameToTimeOrNull, ConvertFromStringExceptionMode::Null>;
 using FunctionToTime64OrNull = FunctionConvertFromString<DataTypeTime64, NameToTime64OrNull, ConvertFromStringExceptionMode::Null>;
-using FunctionToDateTime64OrNull = FunctionConvertFromString<DataTypeDateTime64, NameToDateTime64OrNull, ConvertFromStringExceptionMode::Null>;
+using FunctionToDateTime64OrNull = FunctionConvertFromStringOrInt<DataTypeDateTime64, NameToDateTime64OrNull, ConvertFromStringExceptionMode::Null>;
 using FunctionToDecimal32OrNull = FunctionConvertFromString<DataTypeDecimal<Decimal32>, NameToDecimal32OrNull, ConvertFromStringExceptionMode::Null>;
 using FunctionToDecimal64OrNull = FunctionConvertFromString<DataTypeDecimal<Decimal64>, NameToDecimal64OrNull, ConvertFromStringExceptionMode::Null>;
 using FunctionToDecimal128OrNull = FunctionConvertFromString<DataTypeDecimal<Decimal128>, NameToDecimal128OrNull, ConvertFromStringExceptionMode::Null>;
