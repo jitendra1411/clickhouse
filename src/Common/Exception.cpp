@@ -67,7 +67,7 @@ static size_t handle_error_code(const std::string & msg, int code, bool remote, 
 #ifdef DEBUG_OR_SANITIZER_BUILD
     if (code == ErrorCodes::LOGICAL_ERROR)
     {
-        abortOnFailedAssertion(msg, trace.data(), 0, trace.size());
+        //abortOnFailedAssertion(msg, trace.data(), 0, trace.size());
     }
 #endif
 

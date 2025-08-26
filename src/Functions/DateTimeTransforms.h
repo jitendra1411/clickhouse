@@ -2482,6 +2482,9 @@ struct DateTimeTransformImpl
             }
 
             auto mutable_result_col = result_type->createColumn();
+            std::cout << demangle(typeid(decltype(*mutable_result_col.get())).name()) << std::endl;
+            std::cout << static_cast<int>(result_type->getTypeId()) << std::endl;
+            // WhichDataType result_data_type(result_type);
             auto * col_to = assert_cast<typename ToDataType::ColumnType *>(mutable_result_col.get());
 
             WhichDataType result_data_type(result_type);
